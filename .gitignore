@@ -1,0 +1,8 @@
+.venv/
+__pycache__/
+*.egg-info/
+.pytest_cache/
+build/
+dist/
+# Real scan output can contain account IDs and resource names. Keep it out of git.
+reports/

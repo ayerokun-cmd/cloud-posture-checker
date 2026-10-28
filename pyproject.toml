@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cloud-posture-checker"
+version = "0.1.0"
+description = "Read-only AWS security posture checker that audits an account against the CIS AWS Foundations Benchmark and writes an assessor-style risk report."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Anu Yerokun" }]
+dependencies = ["boto3>=1.34"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "moto[all]>=5.0"]
+
+[project.scripts]
+posture-check = "posture_checker.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
